@@ -1,0 +1,170 @@
+:root {
+    --orange: #ffe8ef;
+    --lightOrange: #39324d;
+    --veryLightOrange: #544474;
+    --gray: #ed5887;
+    --white: #c22557;
+    --text-white: #ffffff; /* Se agrega esta variable para el texto blanco */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Se asegura de que padding y border estén incluidos en el ancho total y la altura de los elementos */
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: var(--white);
+    color: var(--lightOrange); /* Define el color del texto por defecto */
+}
+
+.logo {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+}
+
+h1 {
+    margin-top: 200px; /* Ajuste para el espaciado superior */
+    margin-bottom: 50px; /* Ajuste para el espaciado inferior, para que 'Tareas' tenga espacio alrededor */
+    color: var(--orange); /* Uso de la variable para el color blanco del texto */
+    text-align: center;
+    font-size: 45px; /* Tamaño del texto para que sea prominente como en la imagen */
+    font-weight: bold; /* Fuente en negrita para que destaque */
+}
+
+h2 {
+    margin-top: 20px; /* Ajuste para el espaciado superior */
+    margin-bottom: 5px; /* Ajuste para el espaciado inferior, para que 'Tareas' tenga espacio alrededor */
+    color: var(--orange); /* Uso de la variable para el color blanco del texto */
+    text-align: center;
+    font-size: 45px; /* Tamaño del texto para que sea prominente como en la imagen */
+    font-weight: bold; /* Fuente en negrita para que destaque */
+}
+
+form{
+    /* border: 1px solid; */
+    max-width: 400px;
+    margin: 45px auto;
+    text-align: center;
+}
+form input[type="text"]{
+    background-color: var(--orange);
+    color: var(--white);
+    border-style: none;
+    font-size: 1.5em;
+}
+form input[type="text"]::placeholder{
+    color: var(--veryLightOrange);
+}
+form input[type="text"]:focus{
+    outline: none;
+}
+form input[type="submit"]{
+    color: var(--orange);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-style: none;
+    font-size: 2em;
+}
+form input[type="submit"]:hover{
+    background-color: var(--veryLightOrange);
+    cursor: pointer;
+    color: #ffe8ef;
+}
+
+#addBtn {
+    position: relative; /* Necesario para el posicionamiento absoluto del hijo */
+    background-color: var(--white);
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+    border-radius: 25px;
+    width: 200px;
+    padding: 6px 0;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center; /* Cambiado a left para permitir el posicionamiento del '+' */
+    padding-right: 10px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.btn-container {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.list-container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+.task-container {
+    background-color: #ffe8ef;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    border-radius: 20px; /* Hacer el contenedor más ovalado */
+    padding: 16px;
+    color: #39324d;
+    font-size: 1.1em;
+    font-weight: 500;
+    overflow: hidden;
+    position: relative; /* Añadir posición relativa para alinear los botones */
+}
+
+#addBtn .plus-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em; /* Asegúrate de que el tamaño de la fuente del '+' sea adecuado */
+}
+
+#userInput {
+    display: flex;
+    justify-content: center; /* Centra los elementos hijos del formulario horizontalmente */
+    align-items: center; /* Centra los elementos hijos del formulario verticalmente, si es necesario */
+    flex-direction: column; /* Alinea los hijos del formulario en dirección vertical */
+}
+
+#addBtn:hover {
+    background-color: var(--gray);
+    color: var(--text-white);
+}
+
+.closeBtn{
+    height: 15px;
+}
+
+.editBtn,
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* Ajusta el ancho según tus necesidades */
+    height: 30px; /* Ajusta la altura según tus necesidades */
+}
+
+.editBtn:hover,
+.deleteBtn:hover { /* Cambia el color de fondo al pasar el ratón */
+    cursor: pointer;
+}
+
+.editBtn img,
+.deleteBtn img {
+    width: 20px; /* Ajusta el tamaño del icono según tus necesidades */
+    height: 20px; /* Ajusta el tamaño del icono según tus necesidades */
+}
+
+#stats{
+    margin: 25px 0 50px;
+    color: #ffe8ef;
+    text-align: center;
+    font-size: 1.3em;
+}
+

@@ -1,0 +1,47 @@
+{% load static %}
+
+<!--
+    url.com/todoelchorizo
+    url.com/static/archivo.css
+    url.com/static/archivo.js
+    url.com/static/archivo.jsx
+-->
+
+<!DOCTYPE html>
+<html<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'tareas/styles.css' %}">
+        <title>FocusPocus</title>
+    </head>
+    <body>
+        <h1>Tareas</h1>
+        <img class="logo" src="{% static 'tareas/images/logo.png' %}" alt="Logo">
+    
+        <form action="#" id="userInput">
+            <a type="submit" href='/crear-tarea/' id="addBtn"> <img src='{% static 'tareas/images/mas.png' %}'> </a>
+        </form>
+        
+        <div id="list" class="list-container">
+            {% for tarea in object_list %}
+                <div class="task-container" id="{{ tarea.id }}">
+                    <label>
+                        <input type="checkbox" {% if tarea.estado %} checked {% endif %}> 
+                        {{ tarea.nombre }}
+                    </label>
+                    <div class="btn-container">
+                        <a href='/actualizar-tarea/{{tarea.pk}}/' class="editBtn"> <img src='{% static 'tareas/images/editar.png' %}'> </a>
+                        <a href='/eliminar-tarea/{{tarea.pk}}/' class="deleteBtn"> <img src='{% static 'tareas/images/cruzar.png' %}'> </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="stats">
+            <!-- Tareas pendientes: 5 Completadas: 3 -->
+        </div>
+    
+        <script src= "{% static 'tareas/main.js' %}" ></script>
+    </body>
+    </html>
