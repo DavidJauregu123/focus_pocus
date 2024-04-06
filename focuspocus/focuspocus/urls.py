@@ -21,6 +21,7 @@ from tareas.views import *
 
 from django.conf.urls.static import static 
 from django.conf import settings 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,9 @@ urlpatterns = [
     path('crear-tarea/', CrearTarea.as_view(),),
     path('actualizar-tarea/<int:pk>/', ModificarTarea.as_view(),),
     path('eliminar-tarea/<int:pk>/', EliminarTarea.as_view(),),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    urlpatterns += staticfiles_urlpatterns()
