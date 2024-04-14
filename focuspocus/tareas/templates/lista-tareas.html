@@ -18,6 +18,10 @@
     </head>
     <body>
         <h1>Tareas</h1>
+        <form action="{% url 'logout' %}" method='POST'>
+            {% csrf_token %}
+            <button class="logout-button" type="submit" alt="Logo"> Cerrar sesion </button>
+        </form>
         <img class="logo" src="{% static 'tareas/images/logo.png' %}" alt="Logo">
     
         <form action="#" id="userInput">

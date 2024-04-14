@@ -168,3 +168,16 @@ form input[type="submit"]:hover{
     font-size: 1.3em;
 }
 
+.logout-button{
+        background-color: white;       /* Blue background */
+        color: black;                /* Yellow text color */
+        font-size: 15px;              /* Font size of 15 pixels */
+        padding: 10px 20px;           /* Padding inside the button (top/bottom, left/right) */
+        border: none;                 /* No border */
+        border-radius: 5px;           /* Rounded corners with a radius of 5 pixels */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+        cursor: pointer;              /* Change mouse cursor to indicate button */
+        transition: all 0.3s ease;    /* Smooth transition for hover effects */
+    }
+    
+

@@ -16,7 +16,7 @@ Including another URLconf
 
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from tareas.views import *
 
 from django.conf.urls.static import static 
@@ -30,6 +30,7 @@ urlpatterns = [
     path('crear-tarea/', CrearTarea.as_view(),),
     path('actualizar-tarea/<int:pk>/', ModificarTarea.as_view(),),
     path('eliminar-tarea/<int:pk>/', EliminarTarea.as_view(),),
+    path('',include('django.contrib.auth.urls')),
 ] 
 
 if settings.DEBUG:
