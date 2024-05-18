@@ -1,0 +1,237 @@
+{% load static %}
+
+<!--
+    url.com/todoelchorizo
+    url.com/static/archivo.css
+    url.com/static/archivo.js
+    url.com/static/archivo.jsx
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusPocus</title>
+    <style>
+      /* Importación de fuentes */
+      @import url("https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,400,400i,700,700i,900,900i");
+      @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+
+      body {
+        font-family: "Verdana", sans-serif;
+
+        background-color: var(--white);
+        color: var(--Orange); /* Define el color del texto por defecto */
+        background-image: url("{% static 'tareas/images/fondo.jpg' %}");
+        background-size: cover; /* Para que la imagen de fondo cubra todo el tamaño del cuerpo */
+        background-position: center; /* Para centrar la imagen de fondo */
+      }
+
+      :root {
+        --orange: #ffe8ef;
+        --lightOrange: #39324d;
+        --veryLightOrange: #544474;
+        --gray: #ed5887;
+        --white: #c22557;
+        --text-white: #ffffff; /* Se agrega esta variable para el texto blanco */
+      }
+
+      h1 {
+        font-family: "Alfa Slab One", serif;
+        margin-top: 200px; /* Ajuste para el espaciado superior */
+        margin-bottom: 50px; /* Ajuste para el espaciado inferior, para que 'Tareas' tenga espacio alrededor */
+        color: var(
+          --black
+        ); /* Uso de la variable para el color blanco del texto */
+        text-align: center;
+        font-size: 65px; /* Tamaño del texto para que sea prominente como en la imagen */
+        font-weight: bold; /* Fuente en negrita para que destaque */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Se asegura de que padding y border estén incluidos en el ancho total y la altura de los elementos */
+      }
+
+      .logo {
+        width: 300px;
+        position: absolute;
+        top: 0;
+        right: 30px;
+      }
+
+      form {
+        /* border: 1px solid; */
+        max-width: 400px;
+        margin: 45px auto;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+      }
+      form a {
+        text-decoration: none;
+      }
+
+      #addBtn {
+        position: relative; /* Necesario para el posicionamiento absoluto del hijo */
+        background-color: var(--white);
+        color: var(--text-white);
+        border: 2px solid var(--text-white);
+        border-radius: 25px;
+        width: 200px;
+        padding: 6px 0;
+        font-size: 1.5em;
+        cursor: pointer;
+        text-align: center; /* Cambiado a left para permitir el posicionamiento del '+' */
+        padding-right: 10px;
+        display: inline-block;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .list-container {
+        max-width: 600px;
+        margin: auto;
+      }
+      .task-container {
+        background-color: #ffe8ef;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        border-radius: 20px; /* Hacer el contenedor más ovalado */
+        padding: 16px;
+        color: #39324d;
+        font-size: 1.1em;
+        font-weight: 500;
+        overflow: hidden;
+        position: relative; /* Añadir posición relativa para alinear los botones */
+        text-decoration: none;
+      }
+
+      #userInput #addBtn a {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em; /* Asegúrate de que el tamaño de la fuente del '+' sea adecuado */
+        text-decoration: none; /* Quita la línea de abajo */
+        display: inline-block;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: center; /* Centra los elementos hijos del formulario horizontalmente */
+        align-items: center; /* Centra los elementos hijos del formulario verticalmente, si es necesario */
+        flex-direction: column; /* Alinea los hijos del formulario en dirección vertical */
+      }
+
+      #addBtn:hover {
+        background-color: var(--gray);
+        color: var(--text-white);
+      }
+
+      .logout-button {
+        background-color: white; /* Blue background */
+        color: black; /* Yellow text color */
+        font-size: 15px; /* Font size of 15 pixels */
+        padding: 10px 20px; /* Padding inside the button (top/bottom, left/right) */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners with a radius of 5 pixels */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+        cursor: pointer; /* Change mouse cursor to indicate button */
+        transition: all 0.3s ease; /* Smooth transition for hover effects */
+      }
+
+      #countdown {
+        position: fixed;
+        color: #000000 !important; /* Cambiar el color del texto a blanco */
+        top: 30px;
+        left: 30px;
+        font-size: 34px;
+        font-weight: bold;
+      }
+      .mercado {
+        text-align: center;
+        padding-left: 12px;
+      }
+      .mercado h3 {
+        color: white;
+        font-size: 16px;
+      }
+      .mercado h3:hover {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Efecto de luz */
+      }
+
+      .btnmercado {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 25px;
+      }
+
+      #stats {
+        margin: 25px 0 50px;
+        color: #ffe8ef;
+        text-align: center;
+        font-size: 1.3em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown"></div>
+    <script src="script.js"></script>
+
+    <h1>Mis Tareas</h1>
+    <form action="{% url 'logout' %}" method="POST">
+      {% csrf_token %}
+      <button class="logout-button" type="submit" alt="Cerrar secion">
+        Cerrar sesion
+      </button>
+    </form>
+
+    <img class="logo" src="{% static 'tareas/images/logo.png' %}" alt="Logo" />
+
+    <form action="#" id="userInput">
+      <a href="/crear-tarea/" id="addBtn">+</a>
+    </form>
+
+    <div id="list" class="list-container">
+      {% for tarea in object_list %}
+      <div class="task-container" id="{{ tarea.id }}">
+        <label>
+          <input type="checkbox" {% if tarea.estado %} checked {% endif %} />
+          {{ tarea.nombre }}
+        </label>
+        <div class="btn-container">
+          <a href="/actualizar-tarea/{{tarea.pk}}/" class="editBtn">
+            <img src='{% static 'tareas/images/editar.png' %}'>
+          </a>
+          <a href="/eliminar-tarea/{{tarea.pk}}/" class="deleteBtn">
+            <img src='{% static 'tareas/images/cruzar.png' %}'>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div id="stats">
+      <!-- Tareas pendientes: 5 Completadas: 3 -->
+    </div>
+
+    <div class="mercado">
+      <h3>
+        ¿Nos puedes donar dinero? Somos estudiambres y no hemos comido en 5
+        semanas :c
+      </h3>
+    </div>
+
+    <div class="btnmercado">
+      <script
+        src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+        data-preference-id="417551779-9ac7ded8-bfec-4053-a862-0836e948bc83"
+        data-source="button"
+      ></script>
+    </div>
+
+    <script src="{% static 'tareas/main.js' %}"></script>
+  </body>
+</html>

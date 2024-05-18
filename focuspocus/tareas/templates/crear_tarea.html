@@ -1,0 +1,43 @@
+{% load static %}
+
+<!--
+    url.com/todoelchorizo
+    url.com/static/archivo.css
+    url.com/static/archivo.js
+    url.com/static/archivo.jsx
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tareas/styles.css' %}">
+    <title>Can Dy List</title>
+    <style>
+        form p {
+            margin-top: 20px; /* Ajuste para el espaciado superior */
+        margin-bottom: 5px; /* Ajuste para el espaciado inferior, para que 'Tareas' tenga espacio alrededor */
+        color: var(--text-white); /* Uso de la variable para el color blanco del texto */
+        font-size: 20px; /* Tamaño del texto para que sea prominente como en la imagen */
+        font-weight: bold; /* Fuente en negrita para que destaque */
+        }
+    </style>
+</head>
+</head>
+<body>
+
+    <img class="logo" src="{% static 'tareas/images/logo.png' %}" alt="Logo">
+
+    <h1>Tareas</h1>
+
+    <form  id="userInput" method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="+" id="addBtn">
+    </form>
+
+
+</body>
+</html>
