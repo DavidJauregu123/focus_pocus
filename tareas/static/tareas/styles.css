@@ -1,0 +1,154 @@
+/* Importación de fuentes */
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,400,400i,700,700i,900,900i");
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: var(--white);
+  color: var(--Orange); /* Define el color del texto por defecto */
+  background-image: url("{% static 'tareas/images/fondo.jpg' %}");
+  background-size: cover; /* Para que la imagen de fondo cubra todo el tamaño del cuerpo */
+  background-position: center; /* Para centrar la imagen de fondo */
+}
+
+:root {
+  --orange: #ffe8ef;
+  --lightOrange: #39324d;
+  --veryLightOrange: #544474;
+  --gray: #ed5887;
+  --white: #c22557;
+  --text-white: #ffffff; /* Se agrega esta variable para el texto blanco */
+}
+
+h1 {
+  font-family: "Alfa Slab One", serif;
+  margin-top: 200px; /* Ajuste para el espaciado superior */
+  margin-bottom: 50px; /* Ajuste para el espaciado inferior, para que 'Tareas' tenga espacio alrededor */
+  color: var(--black); /* Uso de la variable para el color blanco del texto */
+  text-align: center;
+  font-size: 65px; /* Tamaño del texto para que sea prominente como en la imagen */
+  font-weight: bold; /* Fuente en negrita para que destaque */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Se asegura de que padding y border estén incluidos en el ancho total y la altura de los elementos */
+}
+
+.logo {
+  width: 300px;
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+
+form {
+  /* border: 1px solid; */
+  max-width: 400px;
+  margin: 45px auto;
+  text-align: center;
+  align-items: center;
+}
+form input[type="text"] {
+  background-color: var(--orange);
+  color: var(--white);
+  border-style: none;
+  font-size: 1.5em;
+}
+form input[type="text"]::placeholder {
+  color: var(--veryLightOrange);
+  margin-bottom: 15px;
+}
+form input[type="text"]:focus {
+  outline: none;
+}
+form input[type="submit"] {
+  color: var(--orange);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-style: none;
+  font-size: 2em;
+}
+form input[type="submit"]:hover {
+  background-color: var(--veryLightOrange);
+  cursor: pointer;
+  color: #ffe8ef;
+}
+
+#addBtn {
+  position: relative; /* Necesario para el posicionamiento absoluto del hijo */
+  background-color: var(--white);
+  color: var(--text-white);
+  border: 2px solid var(--text-white);
+  border-radius: 25px;
+  width: 200px;
+  padding: 6px 0;
+  font-size: 1.5em;
+  cursor: pointer;
+  text-align: center;
+  padding-right: 10px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none; /* Quita la línea de abajo */
+}
+
+#addBtn:hover {
+  background-color: var(--gray);
+  color: var(--text-white);
+}
+
+.btn-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+}
+
+.list-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.task-container {
+  background-color: #ffe8ef;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  border-radius: 20px; /* Hacer el contenedor más ovalado */
+  padding: 16px;
+  color: #39324d;
+  font-size: 1.1em;
+  font-weight: 500;
+  overflow: hidden;
+  position: relative; /* Añadir posición relativa para alinear los botones */
+  text-decoration: none;
+}
+
+.logout-button {
+  background-color: white; /* Blue background */
+  color: black; /* Yellow text color */
+  font-size: 15px; /* Font size of 15 pixels */
+  padding: 10px 20px; /* Padding inside the button (top/bottom, left/right) */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners with a radius of 5 pixels */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+  cursor: pointer; /* Change mouse cursor to indicate button */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.mercado {
+  text-align: center;
+  padding-left: 12px;
+}
+.mercado h3 {
+  color: white;
+  font-size: 16px;
+}
+.btnmercado {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
