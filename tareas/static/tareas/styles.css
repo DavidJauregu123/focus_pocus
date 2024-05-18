@@ -7,7 +7,7 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: var(--white);
   color: var(--Orange); /* Define el color del texto por defecto */
-  background-image: url("{% static 'tareas/images/fondo.jpg' %}");
+  background-image: url("./tareas/images/fondo.jpg");
   background-size: cover; /* Para que la imagen de fondo cubra todo el tamaño del cuerpo */
   background-position: center; /* Para centrar la imagen de fondo */
 }
